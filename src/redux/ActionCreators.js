@@ -5,11 +5,13 @@ export const addTodo = (todo) => (dispatch) => {
     activity: todo,
     complete: false,
   }
-  dispatch(createTask('What should go here?'))
+  dispatch(createTask(newTodo))
 }
 
 const createTask = (todo) => ({
   // Task: Change this object to a redux action.
+  type: ActionTypes.ADD_TODO,
+  payload: todo
 })
 
 export const toggleToDo = (id) => ({
@@ -23,4 +25,9 @@ export const clearAllTasks = () => ({
 
 export const deleteAllTasks = () => ({
   // Task: Create an object to dispatch. use an object in this file as an example
+  type: ActionTypes.DELETE_TASKS,
+})
+
+export const deleteOneTask = () => ({
+  type: ActionTypes.DELETE_ONE,
 })
